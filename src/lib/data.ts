@@ -1,0 +1,8 @@
+export { assets } from './data/assets'
+export { benefits } from './data/benefits'
+export type { CarCategory, CarPricelistItem, CarVariant } from './data/CarPricelist'
+export { carPricelist, featuredUnit } from './data/CarPricelist'
+export { featuredCar } from './data/highlight'
+export { heroAssets } from './data/hero'
+export { testimonials } from './data/testimonial'
+export { whatsappUrl } from './data/site'
