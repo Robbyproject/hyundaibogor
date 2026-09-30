@@ -6,7 +6,7 @@
 
 @layer base {
   :root { font-family: 'Plus Jakarta Sans', sans-serif; color: #45464d; background: #f8f9ff; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
-  html { scroll-behavior: auto; scrollbar-width: none; }
+  html { scroll-behavior: smooth; scrollbar-width: none; }
   html::-webkit-scrollbar { display: none; }
   body { scrollbar-width: none; }
   body::-webkit-scrollbar { display: none; }

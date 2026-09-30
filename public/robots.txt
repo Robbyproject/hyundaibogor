@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: ganti-dengan-domain-web.com/sitemap.xml

@@ -4,11 +4,91 @@ import { featuredCar } from '../lib/data/highlight'
 import { whatsappUrl } from '../lib/data/site'
 
 export function HighlightSection() {
-  return <section id="highlight" className="bg-surface py-12 lg:py-16"><div className="mx-auto max-w-7xl px-5 lg:px-8">
-    <SectionHeading eyebrow="Unit Unggulan Bulan Ini" title="Highlight Pilihan" description="Pratinjau unit terfavorit ready stock dengan promo diskon & DP terendah bulan ini." action={<a href="#highlight-unit" className="inline-flex items-center gap-1 text-xs font-bold text-secondary">Lihat Semua Unit <ArrowRight size={13} /></a>} />
-    <div className="grid overflow-hidden rounded-xl border border-line bg-white shadow-sm lg:grid-cols-12" data-reveal>
-      <div className="relative flex items-center justify-center overflow-hidden bg-blue-50/60 p-5 lg:col-span-7 lg:p-8"><span className="absolute left-4 top-4 z-10 rounded-full bg-ink px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white">Ready Stock</span><img src={featuredCar.image} alt={featuredCar.name} className="aspect-[1.55] w-full rounded-md object-cover transform-gpu transition-transform duration-500 ease-out hover:scale-[1.015]" /></div>
-      <div className="flex flex-col justify-between p-5 lg:col-span-5 lg:p-6"><div><div className="mb-2 flex items-center justify-between gap-2"><span className="text-[9px] font-bold uppercase tracking-[0.12em] text-secondary">{featuredCar.series}</span><span className="rounded-full bg-emerald-50 px-2 py-1 text-[8px] font-bold text-emerald-600">Semua Warna Ready</span></div><h3 className="text-lg font-bold tracking-tight text-ink lg:text-xl">{featuredCar.name}</h3><p className="mt-2 text-[10px] leading-relaxed text-muted">{featuredCar.description}</p><div className="mt-4 grid grid-cols-2 gap-2">{featuredCar.specs.map(([label, value]) => <div key={label} className="rounded-md bg-surface p-2"><span className="block text-[8px] text-muted">{label}</span><span className="mt-1 flex items-center gap-1 text-[9px] font-bold text-ink"><Check size={11} className="text-emerald-500" />{value}</span></div>)}</div></div><div className="mt-5 border-t border-line pt-4"><div className="flex items-end justify-between gap-3"><div><span className="text-[9px] text-muted">Harga OTR Jakarta</span><p className="mt-0.5 text-lg font-bold text-ink">{featuredCar.price}</p></div><p className="text-right text-[9px] text-muted">Angsuran Ringan<strong className="mt-0.5 block text-[10px] text-ink">Mulai {featuredCar.installment}</strong></p></div><div className="mt-3 flex gap-2"><a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex flex-1 items-center justify-center gap-1 rounded-md bg-black px-2 py-2.5 text-[9px] font-bold text-white transition-opacity hover:opacity-80"><MessageCircle size={11} /> Minta Penawaran Spesial</a><a href="#highlight-unit" className="inline-flex items-center justify-center rounded-md bg-blue-50 px-3 py-2.5 text-[9px] font-bold text-secondary">Lihat Opsi Lain</a></div></div></div>
-    </div>
-  </div></section>
+  return (
+    <section id="highlight" className="scroll-mt-20 bg-surface py-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <SectionHeading
+          eyebrow="Unit Unggulan Bulan Ini"
+          title="Highlight Pilihan"
+          description="Pratinjau unit terfavorit ready stock dengan promo diskon & DP terendah bulan ini."
+          action={
+            <a href="#highlight-unit" className="inline-flex items-center gap-1 text-xs font-bold text-secondary">
+              Lihat Semua Unit <ArrowRight size={13} />
+            </a>
+          }
+        />
+        <div className="grid overflow-hidden rounded-xl border border-line bg-white shadow-sm lg:grid-cols-12" data-reveal>
+          <div className="relative flex items-center justify-center overflow-hidden bg-blue-50/60 p-5 lg:col-span-7 lg:p-8">
+            <span className="absolute left-4 top-4 z-10 rounded-full bg-ink px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white">
+              Ready Stock
+            </span>
+            <img
+              src={featuredCar.image}
+              alt={featuredCar.name}
+              className="aspect-[1.55] w-full rounded-md object-cover transform-gpu transition-transform duration-500 ease-out hover:scale-[1.015]"
+            />
+          </div>
+          <div className="flex flex-col justify-between p-5 lg:col-span-5 lg:p-6">
+            <div>
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-secondary">
+                  {featuredCar.series}
+                </span>
+                <span className="rounded-full bg-emerald-50 px-2 py-1 text-[8px] font-bold text-emerald-600">
+                  Semua Warna Ready
+                </span>
+              </div>
+              <h3 className="text-lg font-bold tracking-tight text-ink lg:text-xl">
+                {featuredCar.name}
+              </h3>
+              <p className="mt-2 text-[10px] leading-relaxed text-muted">
+                {featuredCar.description}
+              </p>
+              <div className="mt-4 grid grid-cols-2 gap-2">
+                {featuredCar.specs.map(([label, value]) => (
+                  <div key={label} className="rounded-md bg-surface p-2">
+                    <span className="block text-[8px] text-muted">{label}</span>
+                    <span className="mt-1 flex items-center gap-1 text-[9px] font-bold text-ink">
+                      <Check size={11} className="text-emerald-500" />
+                      {value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-5 border-t border-line pt-4">
+              <div className="flex items-end justify-between gap-3">
+                <div>
+                  <span className="text-[9px] text-muted">Harga OTR Jakarta</span>
+                  <p className="mt-0.5 text-lg font-bold text-ink">{featuredCar.price}</p>
+                </div>
+                <p className="text-right text-[9px] text-muted">
+                  Angsuran Ringan
+                  <strong className="mt-0.5 block text-[10px] text-ink">
+                    Mulai {featuredCar.installment}
+                  </strong>
+                </p>
+              </div>
+              <div className="mt-3 flex gap-2">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex flex-1 items-center justify-center gap-1 rounded-md bg-emerald-600 px-2 py-2.5 text-[9px] font-bold text-white transition-colors hover:bg-emerald-700"
+                >
+                  <MessageCircle size={11} /> Minta Penawaran Spesial
+                </a>
+                <a
+                  href="#highlight-unit"
+                  className="inline-flex items-center justify-center rounded-md bg-blue-50 px-3 py-2.5 text-[9px] font-bold text-secondary"
+                >
+                  Lihat Opsi Lain
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }

@@ -13,12 +13,34 @@ export function HighlightUnitPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' })
     const context = gsap.context(() => {
+      // 1. Animasi Header & Santa Fe secara halus
       const introElements = gsap.utils.toArray<HTMLElement>('[data-reveal]')
-      gsap.fromTo(introElements, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.75, stagger: 0.08, ease: 'power3.out' })
-      gsap.fromTo('[data-catalog-card]', { opacity: 0, y: 32 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, delay: 0.25, ease: 'power3.out' })
+      gsap.fromTo(
+        introElements,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.05, ease: 'power2.out' }
+      )
+
+      // 2. Animasi Filter & Kartu Katalog secara BERSAMAAN (stagger dibuat sangat kecil agar instant)
+      const catalogElements = gsap.utils.toArray<HTMLElement>('[data-catalog-item]')
+      gsap.fromTo(
+        catalogElements,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.03, ease: 'power2.out' }
+      )
     })
     return () => context.revert()
   }, [])
 
-  return <><Header /><main className="min-h-screen bg-paper pb-12"><CatalogIntroSection activeCategory={activeCategory} onCategoryChange={setActiveCategory} /><FeaturedUnitSection /><CarCatalogSection activeCategory={activeCategory} /></main><Footer /></>
+  return (
+    <>
+      <Header />
+      <main className="min-h-screen bg-paper pb-12">
+        <CatalogIntroSection />
+        <FeaturedUnitSection />
+        <CarCatalogSection activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+      </main>
+      <Footer />
+    </>
+  )
 }
