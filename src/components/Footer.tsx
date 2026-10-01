@@ -96,7 +96,7 @@ export function Footer() {
       <div className="border-t border-line bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-[10px] text-muted sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div className="flex items-center gap-2.5">
-            <img src={assets.dealerLogo} alt="Hyundai Dealer Logo" className="h-4 w-auto object-contain" />
+            <img src={assets.dealerLogo} alt="Hyundai Dealer Logo" className="hidden h-4 w-auto object-contain sm:block" />
             <span>© 2026 PT Sinar Inti Primajaya Perkasa - Deva Agriani.</span>
           </div>
           <div className="flex gap-4">
