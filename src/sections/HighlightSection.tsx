@@ -1,4 +1,4 @@
-import { ArrowRight, Check, MessageCircle } from 'lucide-react'
+import { Check, MessageCircle } from 'lucide-react'
 import { SectionHeading } from '../components/SectionHeading'
 import { featuredCar } from '../lib/data/highlight'
 import { whatsappUrl } from '../lib/data/site'
