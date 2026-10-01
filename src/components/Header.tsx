@@ -5,8 +5,7 @@ import { assets } from '../lib/data/assets'
 // 'highlight-unit' diubah menjadi 'highlight' agar sesuai dengan <section id="highlight">
 const links = [
   ['home', 'Home'],
-  ['highlight', 'Unit Unggulan'],
-  ['contact', 'Kontak'],
+  ['highlight-unit', 'Unit Unggulan']
 ]
 
 export function Header() {

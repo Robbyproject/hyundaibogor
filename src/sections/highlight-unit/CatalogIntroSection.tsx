@@ -1,4 +1,4 @@
-import { ShieldCheck } from 'lucide-react'
+import { ArrowDown, ShieldCheck } from 'lucide-react'
 
 export function CatalogIntroSection() {
   return (
@@ -14,6 +14,13 @@ export function CatalogIntroSection() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted lg:text-base">
             Dapatkan penawaran harga terbaik, promo bunga ringan, diskon eksklusif, serta unit test drive siap antar ke lokasi Anda bersama <strong className="text-ink">Deva Agriani</strong>.
           </p>
+          <button
+            type="button"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="mt-5 inline-flex items-center gap-2 rounded-lg border border-line bg-white px-4 py-2.5 text-xs font-bold text-ink transition-colors hover:border-secondary hover:text-secondary"
+          >
+            <ArrowDown size={15} /> Lihat Lokasi & Kontak
+          </button>
         </div>
         <div className="flex items-center gap-3 rounded-xl bg-surface p-4" data-reveal>
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-secondary">

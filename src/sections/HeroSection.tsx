@@ -37,16 +37,14 @@ export function HeroSection() {
               <MessageCircle size={17} /> Chat WhatsApp <ArrowUpRight size={16} />
             </a>
             <a
-              href="#highlight-unit"
+              href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-white px-6 py-3.5 text-sm font-bold text-ink transition-colors hover:border-secondary hover:text-secondary"
             >
-              Lihat Unit Ready Stock <MoveRight size={17} />
+              Contact Me <MoveRight size={17} />
             </a>
           </div>
           <div className="mt-9 grid max-w-xl grid-cols-3 gap-4 border-t border-line pt-6">
             {[
-              ['500+', 'Unit Terkirim'],
-              ['99%', 'Approval Kredit'],
               ['24/7', 'Siap Membantu'],
             ].map(([value, label]) => (
               <div key={label}>

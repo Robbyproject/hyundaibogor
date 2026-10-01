@@ -13,7 +13,7 @@ export function HighlightSection() {
           description="Pratinjau unit terfavorit ready stock dengan promo diskon & DP terendah bulan ini."
           action={
             <a href="#highlight-unit" className="inline-flex items-center gap-1 text-xs font-bold text-secondary">
-              Lihat Semua Unit <ArrowRight size={13} />
+               
             </a>
           }
         />
