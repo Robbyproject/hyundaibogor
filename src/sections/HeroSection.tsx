@@ -1,5 +1,4 @@
-import { ArrowUpRight, Clock3, MapPin, MessageCircle, MoveRight, ShieldCheck } from 'lucide-react'
-import { MaterialIcon } from '../components/MaterialIcon'
+import { ArrowUpRight, Car, Clock3, MapPin, MessageCircle, MoveRight, ShieldCheck } from 'lucide-react'
 import { heroAssets } from '../lib/data/hero'
 import { whatsappUrl } from '../lib/data/site'
 
@@ -17,7 +16,7 @@ export function HeroSection() {
           </h1>
           <div className="my-7 flex max-w-md items-center gap-3.5 rounded-2xl border border-line bg-white p-3 shadow-sm">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-secondary">
-              <MaterialIcon>commute</MaterialIcon>
+              <Car size={22} aria-hidden="true" />
             </div>
             <div>
               <p className="text-sm font-bold leading-tight text-ink">Layanan Test Drive di Tempat</p>
