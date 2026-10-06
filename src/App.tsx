@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
@@ -9,13 +9,8 @@ import { whatsappUrl } from './lib/data/site'
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
-  const [route, setRoute] = useState(window.location.hash)
-
-  useEffect(() => {
-    const handleHashChange = () => setRoute(window.location.hash)
-    window.addEventListener('hashchange', handleHashChange)
-    return () => window.removeEventListener('hashchange', handleHashChange)
-  }, [])
+  const route = window.location.pathname.replace(/\/+$/, '').replace(/\/index\.html$/, '')
+  const isUnitPage = route === '/unit-unggulan'
 
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true })
@@ -29,7 +24,7 @@ function App() {
 
   return (
     <>
-      {route === '#highlight-unit' ? <HighlightUnitPage /> : <HomePage />}
+      {isUnitPage ? <HighlightUnitPage /> : <HomePage />}
       <a
         href={whatsappUrl}
         target="_blank"

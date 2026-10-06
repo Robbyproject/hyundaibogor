@@ -12,7 +12,7 @@ export function HighlightSection() {
           title="Highlight Pilihan"
           description="Pratinjau unit terfavorit ready stock dengan promo diskon & DP terendah bulan ini."
           action={
-            <a href="#highlight-unit" className="inline-flex items-center gap-1 text-xs font-bold text-secondary">
+            <a href="/unit-unggulan" className="inline-flex items-center gap-1 text-xs font-bold text-secondary">
                
             </a>
           }
@@ -79,7 +79,7 @@ export function HighlightSection() {
                   <MessageCircle size={11} /> Minta Penawaran Spesial
                 </a>
                 <a
-                  href="#highlight-unit"
+                  href="/unit-unggulan"
                   className="inline-flex items-center justify-center rounded-md bg-blue-50 px-3 py-2.5 text-[9px] font-bold text-secondary"
                 >
                   Lihat Opsi Lain

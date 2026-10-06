@@ -100,8 +100,8 @@ export function Footer() {
             <span>© 2026 PT Sinar Inti Primajaya Perkasa - Deva Agriani.</span>
           </div>
           <div className="flex gap-4">
-            <a href="#home" className="hover:text-ink">Kebijakan Privasi</a>
-            <a href="#home" className="hover:text-ink">Syarat & Ketentuan</a>
+            <a href="/#home" className="hover:text-ink">Kebijakan Privasi</a>
+            <a href="/#home" className="hover:text-ink">Syarat & Ketentuan</a>
           </div>
         </div>
       </div>
