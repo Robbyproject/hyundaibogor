@@ -20,30 +20,27 @@ export type CarPricelistItem = {
 }
 
 export const featuredUnit = {
-  name: 'All New Santa Fe',
-  eyebrow: 'Popular Choice',
-  tags: ['Hybrid & Bensin', 'Family SUV'],
-  image: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790310985/6.png',
-  description: 'SUV premium dengan desain kokoh, kabin lapang, dan pilihan mesin hybrid yang siap menemani perjalanan keluarga maupun bisnis.',
-  price: 'Rp 735.800.000,-',
-  availability: 'Tersedia varian Gasoline 2.5 8AT dan Turbo Hybrid (HEV)',
+  name: 'Palisade HEV',
+  eyebrow: 'Flagship SUV',
+  tags: ['Turbo Hybrid', 'Flagship 7-Seater', 'AWD Available'],
+  image: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1792555190/palisade_Hev.jpg',
+  description: 'SUV flagship first-class bertenaga 2.5L Turbo Hybrid dengan kenyamanan kabin eksklusif, kesenyapan superior, dan fitur keamanan aktif Hyundai SmartSense terlengkap.',
+  price: 'Rp 1.134.000.000,-',
+  availability: 'Tersedia pilihan varian Signature, Calligraphy (FWD), dan Calligraphy AWD',
   variants: [
-    { name: 'G 2.5 8AT Prime', price: 'Rp 735.800.000' },
-    { name: 'G 2.5 8AT Calligraphy', price: 'Rp 825.300.000' },
-    { name: 'HEV Prime (Hybrid)', price: 'Rp 827.400.000', highlight: true },
-    { name: 'HEV Calligraphy', price: 'Rp 914.700.000' },
-    { name: 'HEV XRT', price: 'Rp 932.400.000' },
-    { name: 'Add Price For Matte Color', price: 'Rp 3.500.000' },
+    { name: 'Signature', price: 'Rp 1.134.000.000' },
+    { name: 'Calligraphy', price: 'Rp 1.321.000.000', highlight: true },
+    { name: 'Calligraphy AWD', price: 'Rp 1.408.000.000' },
   ],
 }
 
 const images = {
-  stargazerCartenz: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337129/stargazer-cartenz.png',
-  stargazerCartenzX: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337129/stargazer-cartenz-x.png',
-  cretaFl: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337128/Creta-fl.png',
+  stargazerCartenz: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1792555189/cartenz.jpg',
+  stargazerCartenzX: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1792555189/cartenz-x.jpg',
+  cretaFl: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1792555189/Creta-fl.jpg',
   santaFe: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337128/all-new-santa-fe.png',
-  palisadeHev: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337128/palisade-hev.png',
-  ioniq9: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337128/ioniq-9.png',
+  palisadeHev: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1792555190/palisade_Hev.jpg',
+  ioniq9: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1792555189/ioniq-9.jpg',
   palisadeDiesel: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337128/palisade-diesel.png',
   ioniq5Bluelink: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337128/ioniq-5-bluelink.png',
   staria: 'https://res.cloudinary.com/bofnhqhp/image/upload/v1790337128/staria.png',
@@ -67,7 +64,7 @@ export const carPricelist: CarPricelistItem[] = [
       { name: 'Prime HSS IVT', price: 'Rp 318.000.000', highlight: true },
       { name: 'Add Price For Captain Seat', price: 'Rp 3.500.000' },
     ],
-    quoteLabel: 'Minta Promo Stargazer',
+    quoteLabel: 'Minta Brosur Stargazer Cartenz',
   },
   {
     id: 'stargazer-cartenz-x',
@@ -84,7 +81,7 @@ export const carPricelist: CarPricelistItem[] = [
       { name: 'Add Price For Matte Color', price: 'Rp 3.500.000' },
       { name: 'Add Price For Captain Seat', price: 'Rp 3.500.000' },
     ],
-    quoteLabel: 'Konsultasi Stargazer X',
+    quoteLabel: 'Minta Brosur Stargazer Cartenz X',
   },
   {
     id: 'creta-fl',
@@ -106,7 +103,7 @@ export const carPricelist: CarPricelistItem[] = [
       { name: 'N-Line Turbo', price: 'Rp 521.000.000' },
       { name: 'Add Price For 2 Tone', price: 'Rp 3.000.000' },
     ],
-    quoteLabel: 'Konsultasi Creta FL',
+    quoteLabel: 'Minta Brosur Creta FL',
   },
   {
     id: 'santa-fe',
@@ -117,8 +114,15 @@ export const carPricelist: CarPricelistItem[] = [
     categories: ['suv', 'hybrid'],
     priceFrom: 'Rp 735.800.000,-',
     description: 'SUV premium dengan kabin lapang, desain kokoh, dan pilihan mesin Gasoline maupun Hybrid.',
-    variants: featuredUnit.variants,
-    quoteLabel: 'Konsultasi Santa Fe',
+    variants: [
+      { name: 'G 2.5 8AT Prime', price: 'Rp 735.800.000' },
+      { name: 'G 2.5 8AT Calligraphy', price: 'Rp 825.300.000' },
+      { name: 'HEV Prime (Hybrid)', price: 'Rp 827.400.000', highlight: true },
+      { name: 'HEV Calligraphy', price: 'Rp 914.700.000' },
+      { name: 'HEV XRT', price: 'Rp 932.400.000' },
+      { name: 'Add Price For Matte Color', price: 'Rp 3.500.000' },
+    ],
+    quoteLabel: 'Minta Brosur All New Santa Fe',
   },
   {
     id: 'palisade-hev',
@@ -148,7 +152,7 @@ export const carPricelist: CarPricelistItem[] = [
     variants: [
       { name: 'Calligraphy AWD', price: 'Rp 1.547.000.000', highlight: true },
     ],
-    quoteLabel: 'Konsultasi Ioniq 9',
+    quoteLabel: 'Minta Brosur Ioniq 9',
   },
   {
     id: 'palisade-diesel',
@@ -181,7 +185,7 @@ export const carPricelist: CarPricelistItem[] = [
       { name: 'Signature Long Range', price: 'Rp 925.600.000', highlight: true },
       { name: 'Add Price For Matte Color', price: 'Rp 3.500.000' },
     ],
-    quoteLabel: 'Simulasi Kredit EV',
+    quoteLabel: 'Minta Brosur Ioniq 5 Bluelink',
   },
   {
     id: 'staria',
@@ -196,6 +200,6 @@ export const carPricelist: CarPricelistItem[] = [
       { name: 'Signature 9 Seater', price: 'Rp 954.800.000', highlight: true },
       { name: 'Signature 7 Seater', price: 'Rp 1.095.600.000' },
     ],
-    quoteLabel: 'Konsultasi Staria',
+    quoteLabel: 'Minta Brosur Staria',
   },
 ]

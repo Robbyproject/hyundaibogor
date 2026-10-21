@@ -1,3 +1,3 @@
-export const whatsappUrl = 'https://wa.me/6285353222269?text=Halo%20Mbak%20Deva,%20saya%20tertarik%20dengan%20unit%20Hyundai%20dan%20ingin%20berkonsultasi%20mengenai%20promo,%20pricelist%20OTR,%20serta%20simulasi%20kredit%20terbaru.%20Mohon%20informasinya,%20terima%20kasih.'
+export const whatsappUrl = 'https://wa.me/6285353222269?text=Halo%20Mbak%20Deva%2C%20perkenalkan%20saya%20mendapatkan%20kontak%20Anda%20dari%20website%20hyundaijabodetabek.com.%20Saya%20bermaksud%20untuk%20berkonsultasi%20terkait%20promo%20resmi%2C%20pricelist%20OTR%2C%20serta%20simulasi%20perhitungan%20kredit%20mobil%20Hyundai%20terbaru.%20Mohon%20informasi%20lebih%20lanjut%20jika%20berkenan.%20Terima%20kasih.'
 export const phoneUrl = 'tel:+6285353222269'
 export const phoneDisplay = '+62 853-5322-2269'
