@@ -1,27 +1,5 @@
-const defaultMessage = encodeURIComponent(
-`Halo Mbak Deva👋🥰, salam kenal.
+export const whatsappUrl =
+  'https://wa.me/6285353222269?text=Halo%20Mbak%20Deva%2C%20salam%20kenal.%0A%0ASaya%20baru%20lihat%20website%20hyundaijabodetabek.com%20dan%20mau%20konsultasi%20santai%20untuk%20cari%20mobil%20Hyundai%20yang%20paling%20pas%20dengan%20kebutuhan%20saya.%0A%0A%5BFORMULIR%20KEBUTUHAN%20UNIT%5D%0A%0ANama%3A%0A%0ADomisili%3A%0A%0AUnit%20yang%20diminati%3A%20(misal%3A%20mobil%20harian%20%2F%20keluarga%20besar%20%2F%20mobil%20listrik%20%2F%20perjalanan%20luar%20kota)%0A%0AUnit%20yang%20lagi%20dipertimbangkan%3A%20(atau%20boleh%20minta%20rekomendasi%20Mbak%20Deva)%0A%0ARencana%20pembelian%3A%20Cash%20%2F%20Kredit%0A%0AAda%20rencana%20tukar%20tambah%3A%20Ya%20%2F%20Tidak%0A%0AStatus%20saat%20ini%3A%20Masih%20survei%20%26%20bandingkan%20%2F%20Rencana%20ambil%20dalam%20waktu%20dekat%0A%0ABoleh%20tolong%20dibantu%20kirimkan%20e-brosur%20dan%20rekomendasi%20unit%20yang%20cocok%20ya%20Mbak.%20Sekalian%20kalau%20ada%20promo%20atau%20diskon%20menarik%20bulan%20ini%20boleh%20diinfokan%20juga.%20Terima%20kasih!'
 
-Saya baru lihat website hyundaijabodetabek.com 🚘 dan mau konsultasi santai untuk cari mobil Hyundai yang paling pas dengan kebutuhan saya.
-
-📄Berikut Formulir Tentang kebutuhan saya:
-
-Nama:
-
-Domisili:
-
-Unit yang diminati: (misal: mobil harian / keluarga besar / mobil listrik / perjalanan luar kota)
-
-Unit yang lagi dipertimbangkan: (atau boleh minta rekomendasi Mbak Deva)
-
-Rencana pembelian: Cash / Kredit
-
-Ada rencana tukar tambah: Ya / Tidak
-
-Status saat ini: Masih survei & bandingkan / Rencana ambil dalam waktu dekat
-
-Boleh tolong dibantu kirimkan e-brosur dan rekomendasi unit yang cocok ya Mbak. Sekalian kalau ada promo atau diskon menarik bulan ini boleh diinfokan juga. Terima kasih!🙏😊`
-)
-
-export const whatsappUrl = `https://wa.me/6285353222269?text=${defaultMessage}`
 export const phoneUrl = 'tel:+6285353222269'
 export const phoneDisplay = '+62 853-5322-2269'
