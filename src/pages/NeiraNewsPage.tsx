@@ -3,7 +3,10 @@ import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { carPricelist } from '../lib/data/CarPricelist'
 import { whatsappUrl } from '../lib/data/site'
+
+const neiraCar = carPricelist.find((car) => car.id === 'hyundai-neira')
 
 const highlights = [
   { value: '7', label: 'penumpang', description: 'SUV listrik dengan konfigurasi tujuh penumpang', icon: Users },
@@ -36,6 +39,10 @@ const message = encodeURIComponent(
 const chatUrl = `${whatsappUrl.split('?')[0]}?text=${message}`
 
 export function NeiraNewsPage() {
+  if (!neiraCar) {
+    throw new Error('Hyundai NEIRA is missing from the car pricelist')
+  }
+
   const heroCopyRef = useRef<HTMLDivElement>(null)
   const heroImageRef = useRef<HTMLDivElement>(null)
   const heroStatusRef = useRef<HTMLDListElement>(null)
@@ -85,55 +92,54 @@ export function NeiraNewsPage() {
               <div
                 ref={heroImageRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-0 bg-cover [background-position:center_calc(58%_-_15px)]"
+                className="pointer-events-none absolute inset-0 z-0 bg-cover [background-position:55%_center] md:[background-position:center_calc(58%_-_15px)]"
                 style={{
                   backgroundImage:
                     "url('https://res.cloudinary.com/bofnhqhp/image/upload/v1794916438/bg-hyundai-neira.webp')",
                 }}
               />
-              <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] min-h-[calc(100svh-4rem)] w-full max-w-7xl flex-col px-5 pb-0 pt-5 sm:px-6 lg:px-8 lg:pt-6">
-                <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-muted">
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-paper/80 via-paper/55 to-paper/10 md:hidden" aria-hidden="true" />
+              <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] min-h-[calc(100svh-4rem)] w-full max-w-7xl flex-col px-5 pb-0 pt-1 sm:px-6 md:pt-5 lg:px-8 lg:pt-6">
+                <nav aria-label="Breadcrumb" className="mb-1 flex flex-wrap items-center gap-1.5 text-xs text-muted md:mb-5">
                   <a href="/" className="transition-colors hover:text-secondary">Beranda</a>
                   <ChevronRight size={14} aria-hidden="true" />
                   <span>Berita Hyundai</span>
                   <ChevronRight size={14} aria-hidden="true" />
                   <span className="font-semibold text-ink">Hyundai NEIRA</span>
                 </nav>
-                <div className="relative isolate grid flex-1 items-center gap-5 overflow-hidden pb-36 pt-4 sm:gap-8 sm:pb-40 md:grid-cols-2 md:pb-6 lg:gap-12 lg:pb-8">
-                  <div ref={heroCopyRef} className="relative z-10 py-2">
-                    <p className="mb-4 inline-flex rounded-full border border-line bg-white px-3 py-1.5 text-[10px] font-bold text-ink shadow-sm sm:text-xs">
+                <div className="relative isolate grid min-h-0 flex-1 items-start gap-5 overflow-hidden pb-56 pt-0 sm:gap-8 sm:pb-40 md:items-center md:grid-cols-2 md:pb-6 md:pt-4 lg:gap-12 lg:pb-8">
+                  <div ref={heroCopyRef} className="relative top-[35px] z-10 mx-auto max-w-[19rem] py-0 text-center sm:max-w-none md:top-0 md:mx-0 md:max-w-none md:-translate-y-8 md:py-2 md:text-left">
+                    <p className="mx-auto mt-6 mb-2 inline-flex max-w-full flex-nowrap whitespace-nowrap rounded-full border border-line bg-white px-2.5 py-1.5 text-[9px] font-bold text-ink shadow-sm sm:px-3 sm:text-xs md:mx-0 md:mt-0 md:mb-4">
                       <span className="mr-2 mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
-                      Segera hadir · Pemesanan awal dijadwalkan 20 November 2026
+                      Segera hadir · Pemesanan awal 20 Nov 2026
                     </p>
-                    <h1 className="max-w-xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
-                      Hyundai
-                      <br />
-                      NEIRA
+                    <h1 className="mt-5 whitespace-nowrap text-[2.125rem] font-bold leading-none tracking-[-0.055em] md:mt-0 sm:text-6xl lg:text-7xl">
+                      Hyundai NEIRA
                     </h1>
-                    <p className="mt-4 text-lg font-semibold leading-snug text-ink sm:text-xl">
+                    <p className="mt-2 text-lg font-semibold leading-snug text-ink sm:text-xl md:mt-4">
                       SUV Listrik 7 Penumpang Terbaru
                       <br />
                       Segera Hadir
                     </p>
-                    <p className="mt-4 max-w-md text-sm leading-relaxed text-muted sm:text-base">
-                      Dapatkan kabar jadwal pemesanan dan harga resminya lebih dulu langsung dari Deva
-                      Agriani.
+                    <p className="mx-auto mt-2 max-w-[19rem] text-xs leading-relaxed text-muted sm:text-sm md:mx-0 md:mt-4 md:max-w-md md:text-base">
+                      Ikuti informasi jadwal pemesanan dan harga resmi NEIRA dari Deva Agriani.
                     </p>
-                    <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <div className="mt-3 flex flex-row flex-nowrap items-center justify-center gap-2 sm:gap-3 md:mt-6 md:justify-start">
                       <a
                         href={chatUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-ink"
+                        className="inline-flex w-fit shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-secondary px-3 py-2.5 text-xs font-bold text-white transition-colors hover:bg-ink sm:gap-2 sm:px-5 sm:py-3 sm:text-sm"
                       >
-                        Tanya Jadwal Pemesanan NEIRA
+                        <span className="md:hidden">Tanya NEIRA</span>
+                        <span className="hidden md:inline">Konsultasi Hyundai NEIRA</span>
                         <MessageCircle size={16} aria-hidden="true" />
                       </a>
                       <a
                         href="/unit-unggulan"
-                        className="inline-flex items-center justify-center rounded-lg border border-line bg-white px-4 py-3 text-sm font-semibold text-ink transition-colors hover:border-secondary hover:text-secondary"
+                        className="inline-flex w-fit shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-line bg-white px-3 py-2.5 text-xs font-semibold text-ink transition-colors hover:border-secondary hover:text-secondary sm:px-5 sm:py-3 sm:text-sm"
                       >
-                        Lihat Unit Hyundai Lainnya
+                        Lihat Unit
                       </a>
                     </div>
                   </div>
@@ -211,6 +217,14 @@ export function NeiraNewsPage() {
 
                 <div className="mt-8 space-y-4 text-sm leading-7 text-muted sm:text-base">
                   <section>
+                    <figure className="mb-6 overflow-hidden rounded-2xl border border-line bg-white p-3 sm:p-5">
+                      <img
+                        src={neiraCar.image}
+                        alt="Hyundai NEIRA EV, SUV listrik tujuh penumpang"
+                        className="mx-auto max-h-72 w-full object-contain sm:max-h-96"
+                        loading="lazy"
+                      />
+                    </figure>
                     <h2 className="mb-2 text-xl font-bold tracking-tight text-ink">
                       Informasi awal Hyundai NEIRA
                     </h2>
