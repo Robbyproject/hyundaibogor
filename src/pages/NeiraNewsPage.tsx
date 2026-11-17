@@ -308,7 +308,7 @@ export function NeiraNewsPage() {
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
                   Minta kabar terbaru mengenai harga, spesifikasi, dan pemesanan NEIRA dari Deva
-                  Agriani untuk area Bogor, Sentul, Jakarta, Depok, Tangerang, dan Bekasi.
+                  Agriani untuk area Bogor, Sentul, Jakarta, Depok, Tangerang, Bekasi, dan Bandung.
                 </p>
                 <a
                   href={chatUrl}

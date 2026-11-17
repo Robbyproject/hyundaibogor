@@ -95,12 +95,12 @@ export function Footer() {
 
         <section className="mt-8">
           <h3 className="text-sm font-bold text-ink">
-            Layanan Hyundai untuk Wilayah Jabodetabek
+            Layanan Pembelian Hyundai untuk Jawa Barat & Jabodetabek
           </h3>
           <p className="mt-2 max-w-5xl text-xs leading-relaxed text-muted">
-            Kami melayani konsultasi pembelian Hyundai secara tunai maupun kredit, tukar tambah,
-            uji kendara ke rumah atau kantor, serta pengiriman unit. Layanan tersedia untuk wilayah
-            Bogor, Sentul, Cibinong, Depok, Jakarta, Bekasi, dan Tangerang.
+            Kami melayani pembelian Hyundai secara tunai maupun kredit, tukar tambah, uji kendara ke
+            rumah atau kantor, serta pengiriman unit. Layanan tersedia di Bogor, Sentul, Cibinong,
+            Depok, Jakarta, Bekasi, Tangerang, dan wilayah Jawa Barat termasuk Bandung.
           </p>
         </section>
       </div>
