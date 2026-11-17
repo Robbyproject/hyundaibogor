@@ -1,13 +1,33 @@
 import { CalendarDays, Check, ChevronRight, Eye, Gauge, MessageCircle, Users } from 'lucide-react'
+import gsap from 'gsap'
+import { useEffect, useRef } from 'react'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { whatsappUrl } from '../lib/data/site'
 
 const highlights = [
-  { icon: Users, text: 'SUV listrik dengan konfigurasi tujuh penumpang' },
-  { icon: Gauge, text: 'Jarak terendah ke tanah 200 mm untuk beragam kondisi jalan' },
-  { icon: Eye, text: 'Hyundai Bluelink dan Blind-Spot View Monitor (BVM)' },
-  { icon: Check, text: 'Kabin tiga baris dengan akses praktis ke baris ketiga' },
+  { value: '7', label: 'penumpang', description: 'SUV listrik dengan konfigurasi tujuh penumpang', icon: Users },
+  { value: '200 mm', label: 'jarak terendah ke tanah', description: 'Jarak terendah ke tanah untuk beragam kondisi jalan', icon: Gauge },
+  { value: 'Bluelink', label: '+ BVM', description: 'Hyundai Bluelink dan Blind-Spot View Monitor (BVM)', icon: Eye },
+  { value: '3 baris', label: 'kabin', description: 'Akses praktis ke baris ketiga untuk keluarga', icon: Check },
+]
+
+const timeline = [
+  {
+    date: '16 November 2026',
+    title: 'Informasi resmi dirilis',
+    description: 'Hyundai Indonesia membagikan informasi awal mengenai NEIRA.',
+  },
+  {
+    date: '20 November 2026',
+    title: 'Pemesanan awal dijadwalkan',
+    description: 'Pemesanan awal direncanakan pada GAIKINDO Jakarta Auto Week 2026.',
+  },
+  {
+    date: 'Menyusul',
+    title: 'Harga OTR resmi',
+    description: 'Harga resmi belum diumumkan. Kami akan membagikan kabar terbaru saat tersedia.',
+  },
 ]
 
 const message = encodeURIComponent(
@@ -16,213 +36,277 @@ const message = encodeURIComponent(
 const chatUrl = `${whatsappUrl.split('?')[0]}?text=${message}`
 
 export function NeiraNewsPage() {
+  const heroCopyRef = useRef<HTMLDivElement>(null)
+  const heroImageRef = useRef<HTMLDivElement>(null)
+  const heroStatusRef = useRef<HTMLDListElement>(null)
+
+  useEffect(() => {
+    const media = gsap.matchMedia()
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      if (heroCopyRef.current) {
+        timeline.fromTo(
+          heroCopyRef.current.children,
+          { autoAlpha: 0, y: 18 },
+          { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1 }
+        )
+      }
+
+      if (heroImageRef.current) {
+        timeline.fromTo(
+          heroImageRef.current,
+          { autoAlpha: 0, scale: 1.04 },
+          { autoAlpha: 1, scale: 1, duration: 0.85 },
+          '-=0.65'
+        )
+      }
+
+      if (heroStatusRef.current) {
+        timeline.fromTo(
+          heroStatusRef.current,
+          { autoAlpha: 0, y: 14 },
+          { autoAlpha: 1, y: 0, duration: 0.55 },
+          '-=0.4'
+        )
+      }
+    })
+
+    return () => media.revert()
+  }, [])
+
   return (
     <>
       <Header />
       <main className="min-h-screen bg-paper pb-16">
-        <article className="mx-auto max-w-7xl px-5 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-16">
-          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-1.5 text-xs text-muted">
-            <a href="/" className="transition-colors hover:text-secondary">Beranda</a>
-            <ChevronRight size={14} aria-hidden="true" />
-            <span>Berita Hyundai</span>
-            <ChevronRight size={14} aria-hidden="true" />
-            <span className="font-semibold text-ink">Hyundai NEIRA</span>
-          </nav>
+        <article>
+          <header className="border-b border-line bg-paper text-ink">
+            <div className="relative isolate overflow-hidden">
+              <div
+                ref={heroImageRef}
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-0 bg-cover [background-position:center_calc(58%_-_15px)]"
+                style={{
+                  backgroundImage:
+                    "url('https://res.cloudinary.com/bofnhqhp/image/upload/v1794916438/bg-hyundai-neira.webp')",
+                }}
+              />
+              <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] min-h-[calc(100svh-4rem)] w-full max-w-7xl flex-col px-5 pb-0 pt-5 sm:px-6 lg:px-8 lg:pt-6">
+                <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-muted">
+                  <a href="/" className="transition-colors hover:text-secondary">Beranda</a>
+                  <ChevronRight size={14} aria-hidden="true" />
+                  <span>Berita Hyundai</span>
+                  <ChevronRight size={14} aria-hidden="true" />
+                  <span className="font-semibold text-ink">Hyundai NEIRA</span>
+                </nav>
+                <div className="relative isolate grid flex-1 items-center gap-5 overflow-hidden pb-36 pt-4 sm:gap-8 sm:pb-40 md:grid-cols-2 md:pb-6 lg:gap-12 lg:pb-8">
+                  <div ref={heroCopyRef} className="relative z-10 py-2">
+                    <p className="mb-4 inline-flex rounded-full border border-line bg-white px-3 py-1.5 text-[10px] font-bold text-ink shadow-sm sm:text-xs">
+                      <span className="mr-2 mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
+                      Segera hadir · Pemesanan awal dijadwalkan 20 November 2026
+                    </p>
+                    <h1 className="max-w-xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
+                      Hyundai
+                      <br />
+                      NEIRA
+                    </h1>
+                    <p className="mt-4 text-lg font-semibold leading-snug text-ink sm:text-xl">
+                      SUV Listrik 7 Penumpang Terbaru
+                      <br />
+                      Segera Hadir
+                    </p>
+                    <p className="mt-4 max-w-md text-sm leading-relaxed text-muted sm:text-base">
+                      Dapatkan kabar jadwal pemesanan dan harga resminya lebih dulu langsung dari Deva
+                      Agriani.
+                    </p>
+                    <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                      <a
+                        href={chatUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-ink"
+                      >
+                        Tanya Jadwal Pemesanan NEIRA
+                        <MessageCircle size={16} aria-hidden="true" />
+                      </a>
+                      <a
+                        href="/unit-unggulan"
+                        className="inline-flex items-center justify-center rounded-lg border border-line bg-white px-4 py-3 text-sm font-semibold text-ink transition-colors hover:border-secondary hover:text-secondary"
+                      >
+                        Lihat Unit Hyundai Lainnya
+                      </a>
+                    </div>
+                  </div>
 
-          <header className="mb-8">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-secondary">
-              Berita & Informasi Mobil Baru
-            </p>
-            <h1 className="text-3xl font-bold leading-tight tracking-[-0.04em] text-ink sm:text-4xl lg:text-5xl xl:text-6xl">
-              Hyundai NEIRA: SUV Listrik 7 Penumpang Terbaru Segera Hadir
-            </h1>
-            <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted sm:text-lg">
-              Hyundai NEIRA dijadwalkan diperkenalkan dan mulai menerima pemesanan awal pada
-              GAIKINDO Jakarta Auto Week 2026. Simak informasi awal mengenai SUV listrik keluarga
-              ini dan cara meminta kabar terbaru.
-            </p>
-            <div className="mt-5 flex flex-wrap items-center gap-2 text-xs text-muted">
-              <CalendarDays size={14} className="text-secondary" aria-hidden="true" />
-              <time dateTime="2026-11-17">17 November 2026</time>
-              <span aria-hidden="true">·</span>
-              <span>Informasi Hyundai NEIRA</span>
+                  <div className="hidden md:block" aria-hidden="true" />
+                </div>
+              </div>
+            </div>
+            <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+              <dl ref={heroStatusRef} id="status" className="grid border-t border-line bg-paper sm:grid-cols-3">
+                <div className="border-b border-line py-4 sm:border-b-0 sm:border-r sm:pr-5">
+                  <dt className="text-xs text-muted">Pemesanan awal</dt>
+                  <dd className="mt-1 text-sm font-bold text-ink">Dijadwalkan 20 November 2026</dd>
+                </div>
+                <div className="border-b border-line py-4 sm:border-b-0 sm:border-r sm:px-5">
+                  <dt className="text-xs text-muted">Harga OTR resmi</dt>
+                  <dd className="mt-1 text-sm font-bold text-secondary">Belum diumumkan</dd>
+                </div>
+                <div className="py-4 sm:pl-5">
+                  <dt className="text-xs text-muted">Informasi terbaru</dt>
+                  <dd className="mt-1 text-sm font-bold text-ink">Hubungi Deva Agriani</dd>
+                </div>
+              </dl>
             </div>
           </header>
 
-          <section
-            aria-labelledby="neira-status-title"
-            className="mb-10 overflow-hidden rounded-2xl border border-line bg-white shadow-sm"
-          >
-            <div className="grid md:grid-cols-2">
-              <div className="relative min-h-56 bg-surface sm:min-h-72">
-                <img
-                  src="https://res.cloudinary.com/bofnhqhp/image/upload/v1794896830/hyundai-neira-new_compressed.webp"
-                  alt="Hyundai NEIRA, SUV listrik keluarga tujuh penumpang"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  fetchPriority="high"
-                />
-                <span className="absolute left-4 top-4 rounded-full bg-ink px-3 py-1.5 text-xs font-bold text-white shadow">
-                  Segera Hadir
-                </span>
-              </div>
-              <div className="flex flex-col justify-center p-5 sm:p-7 lg:p-9">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">
-                  Status Hyundai NEIRA
-                </p>
-                <h2 id="neira-status-title" className="mt-2 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                  Informasi harga dan pemesanan
+          <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+            <div className="pb-10 pt-8 text-xs text-muted">
+              <CalendarDays className="mr-1 inline-block text-secondary" size={14} aria-hidden="true" />
+              <time dateTime="2026-11-17">17 November 2026</time>
+              <span aria-hidden="true"> · </span>
+              Berita & Informasi Mobil Baru
+            </div>
+
+            <section aria-labelledby="timeline-title" className="pb-12">
+              <h2 id="timeline-title" className="mb-6 text-2xl font-bold tracking-tight text-ink">
+                Jalur menuju peluncuran
+              </h2>
+              <ol className="relative grid gap-6 border-l-2 border-blue-100 pl-5 sm:ml-2 sm:grid-cols-3 sm:gap-6 sm:border-l-0 sm:border-t-2 sm:pl-0">
+                {timeline.map((item, index) => (
+                  <li key={item.title} className="relative sm:pt-5">
+                    <span
+                      className={`absolute -left-[1.63rem] top-1 h-3 w-3 rounded-full border-2 border-paper sm:-top-[0.43rem] sm:left-0 ${
+                        index === 1 ? 'bg-secondary ring-4 ring-blue-100' : 'bg-blue-200'
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <p className="text-xs font-bold text-secondary">{item.date}</p>
+                    <h3 className="mt-1 text-sm font-bold text-ink">{item.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted">{item.description}</p>
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-10">
+              <section aria-labelledby="features-title">
+                <h2 id="features-title" className="mb-4 text-2xl font-bold tracking-tight text-ink">
+                  Yang membuat NEIRA berbeda
                 </h2>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-muted sm:text-base">
-                  SUV listrik keluarga 7 penumpang. Pemesanan awal dijadwalkan mulai 20 November
-                  2026; harga resmi belum diumumkan.
+                <ul className="divide-y divide-blue-100 border-y border-blue-100">
+                  {highlights.map(({ value, label, description, icon: Icon }) => (
+                    <li key={value} className="grid grid-cols-[2.25rem_6rem_minmax(0,1fr)] items-center gap-3 py-4 sm:grid-cols-[2.5rem_7rem_minmax(0,1fr)] sm:gap-4">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-white sm:h-10 sm:w-10">
+                        <Icon size={18} aria-hidden="true" />
+                      </span>
+                      <span>
+                        <strong className="block text-base font-extrabold leading-tight text-ink sm:text-lg">{value}</strong>
+                        <span className="text-[10px] text-secondary">{label}</span>
+                      </span>
+                      <span className="text-xs leading-relaxed text-muted sm:text-sm">{description}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 space-y-4 text-sm leading-7 text-muted sm:text-base">
+                  <section>
+                    <h2 className="mb-2 text-xl font-bold tracking-tight text-ink">
+                      Informasi awal Hyundai NEIRA
+                    </h2>
+                    <p>
+                      PT Hyundai Motors Indonesia mengumumkan rencana memperkenalkan Hyundai NEIRA,
+                      SUV listrik berkonfigurasi tujuh penumpang, di GAIKINDO Jakarta Auto Week
+                      (GJAW) 2026. Berdasarkan informasi yang tersedia, pemesanan awal dijadwalkan
+                      mulai dibuka pada 20 November 2026. Calon pembeli sebaiknya mengonfirmasi
+                      status pemesanan dan ketersediaan terkini kepada konsultan penjualan.
+                    </p>
+                    <p className="mt-3">
+                      NEIRA direncanakan diproduksi di Indonesia. Laporan media otomotif menyebut
+                      tingkat komponen dalam negeri (TKDN) ditargetkan melampaui 60 persen. Harga
+                      OTR resmi belum diumumkan dalam informasi yang kami rujuk. Spesifikasi akhir
+                      dapat berbeda saat produk dan harga resmi diumumkan.
+                    </p>
+                  </section>
+
+                  <section className="border-t border-line pt-5">
+                    <h2 className="mb-3 text-base font-bold text-ink">Sumber informasi</h2>
+                    <ul className="space-y-2 text-sm leading-relaxed">
+                      <li>
+                        <a
+                          href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2872"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-secondary underline underline-offset-2"
+                        >
+                          Hyundai Indonesia — informasi NEIRA (16 November 2026)
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2866"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-secondary underline underline-offset-2"
+                        >
+                          Hyundai Indonesia — informasi NEIRA (6 November 2026)
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://www.oto.com/berita-mobil/hyundai-siap-buka-pre-booking-neira-di-gaw-2026-bakal-dirakit-lokal"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-secondary underline underline-offset-2"
+                        >
+                          Oto.com — jadwal pemesanan awal dan rencana produksi lokal
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://otodriver.com/berita/2026/pre-booking-hyundai-neira-dibuka-di-gaw-2026-tkdn-tembus-60-persen-preefhdgsen"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-secondary underline underline-offset-2"
+                        >
+                          OtoDriver — laporan TKDN Hyundai NEIRA
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://oto.detik.com/mobil/d-8739841/hyundai-neira-meluncur-di-ri-akhir-bulan-ini-harga-di-bawah-rp-400-juta"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-secondary underline underline-offset-2"
+                        >
+                          detikOto — informasi peluncuran dan harga yang belum diumumkan
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </section>
+
+              <aside className="h-fit rounded-2xl border border-line bg-white p-5 text-ink shadow-sm sm:p-6 lg:sticky lg:top-24">
+                <p className="text-xs font-bold text-secondary">Kabar langsung dari konsultan</p>
+                <h2 className="mt-2 text-lg font-bold leading-snug text-ink">
+                  Hyundai NEIRA di Bogor & Jabodetabek
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Minta kabar terbaru mengenai harga, spesifikasi, dan pemesanan NEIRA dari Deva
+                  Agriani untuk area Bogor, Sentul, Jakarta, Depok, Tangerang, dan Bekasi.
                 </p>
-                <dl className="mt-5 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-xl bg-blue-50 p-3">
-                    <dt className="text-xs text-muted">Pemesanan awal</dt>
-                    <dd className="mt-1 text-sm font-bold text-ink">Dijadwalkan 20 November 2026</dd>
-                  </div>
-                  <div className="rounded-xl bg-surface p-3">
-                    <dt className="text-xs text-muted">Harga OTR resmi</dt>
-                    <dd className="mt-1 text-sm font-bold text-secondary">Belum diumumkan</dd>
-                  </div>
-                </dl>
                 <a
                   href={chatUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-secondary px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-ink"
                 >
+                  Tanya Deva soal NEIRA
                   <MessageCircle size={16} aria-hidden="true" />
-                  Minta Informasi Hyundai NEIRA
                 </a>
-              </div>
+              </aside>
             </div>
-          </section>
-
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-10">
-            <div className="min-w-0 space-y-6 text-sm leading-7 text-muted sm:text-base">
-              <section>
-                <h2 className="mb-3 text-xl font-bold tracking-tight text-ink">
-                  Informasi awal Hyundai NEIRA
-                </h2>
-                <p>
-                  PT Hyundai Motors Indonesia mengumumkan rencana memperkenalkan Hyundai NEIRA,
-                  SUV listrik berkonfigurasi tujuh penumpang, di GAIKINDO Jakarta Auto Week
-                  (GJAW) 2026. Berdasarkan informasi yang tersedia, pemesanan awal dijadwalkan mulai
-                  dibuka pada 20 November 2026. Informasi ini merupakan jadwal yang diumumkan
-                  sebelumnya; calon pembeli sebaiknya mengonfirmasi status pemesanan dan
-                  ketersediaan terkini kepada konsultan penjualan.
-                </p>
-                <p className="mt-3">
-                  NEIRA direncanakan diproduksi di Indonesia. Laporan media otomotif menyebut
-                  tingkat komponen dalam negeri (TKDN) ditargetkan melampaui 60 persen. Harga OTR
-                  resmi belum diumumkan dalam informasi yang kami rujuk.
-                </p>
-              </section>
-
-              <section>
-                <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-secondary">
-                  Sekilas tentang NEIRA
-                </p>
-                <h2 className="mb-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                  Fitur dan keunggulan
-                </h2>
-                <ul className="grid gap-3 sm:grid-cols-2">
-                  {highlights.map(({ icon: Icon, text }) => (
-                    <li
-                      key={text}
-                      className="flex items-start gap-3 rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-4 shadow-sm sm:p-5"
-                    >
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-white shadow-sm">
-                        <Icon size={20} aria-hidden="true" />
-                      </span>
-                      <span className="pt-1 text-sm font-bold leading-relaxed text-ink sm:text-base">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 rounded-lg bg-surface px-4 py-3 text-sm leading-relaxed">
-                  Rincian di atas adalah informasi awal yang diberitakan; spesifikasi akhir dapat
-                  berbeda saat produk dan harga resmi diumumkan.
-                </p>
-              </section>
-
-              <section className="border-t border-line pt-5">
-                <h2 className="mb-3 text-base font-bold text-ink">Sumber informasi</h2>
-                <ul className="space-y-2 text-sm leading-relaxed">
-                  <li>
-                    <a
-                      href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2872"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary underline underline-offset-2"
-                    >
-                      Hyundai Indonesia — informasi NEIRA (16 November 2026)
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2866"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary underline underline-offset-2"
-                    >
-                      Hyundai Indonesia — informasi NEIRA (6 November 2026)
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.oto.com/berita-mobil/hyundai-siap-buka-pre-booking-neira-di-gaw-2026-bakal-dirakit-lokal"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary underline underline-offset-2"
-                    >
-                      Oto.com — jadwal pemesanan awal dan rencana produksi lokal
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://otodriver.com/berita/2026/pre-booking-hyundai-neira-dibuka-di-gaw-2026-tkdn-tembus-60-persen-preefhdgsen"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary underline underline-offset-2"
-                    >
-                      OtoDriver — laporan TKDN Hyundai NEIRA
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://oto.detik.com/mobil/d-8739841/hyundai-neira-meluncur-di-ri-akhir-bulan-ini-harga-di-bawah-rp-400-juta"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary underline underline-offset-2"
-                    >
-                      detikOto — informasi peluncuran dan harga yang belum diumumkan
-                    </a>
-                  </li>
-                </ul>
-              </section>
-            </div>
-
-            <aside className="h-fit rounded-2xl border border-line bg-gradient-to-b from-blue-50 to-white p-5 shadow-sm">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-secondary">
-                Informasi lokal
-              </p>
-              <h2 className="mt-2 text-lg font-bold text-ink">
-                Hyundai NEIRA di Bogor & Jabodetabek
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Minta kabar terbaru mengenai harga, spesifikasi, dan pemesanan Hyundai NEIRA dari
-                Deva Agriani untuk area Bogor, Sentul, Jakarta, Depok, Tangerang, dan Bekasi.
-              </p>
-              <a
-                href={chatUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-secondary hover:text-ink"
-              >
-                Hubungi via WhatsApp <ChevronRight size={14} aria-hidden="true" />
-              </a>
-            </aside>
           </div>
         </article>
       </main>
