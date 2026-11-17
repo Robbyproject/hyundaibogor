@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { HomePage } from './pages/HomePage'
 import { HighlightUnitPage } from './pages/HighlightUnitPage'
+import { NeiraNewsPage } from './pages/NeiraNewsPage'
 import { whatsappUrl } from './lib/data/site'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -11,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 function App() {
   const route = window.location.pathname.replace(/\/+$/, '').replace(/\/index\.html$/, '')
   const isUnitPage = route === '/unit-unggulan'
+  const isNeiraNewsPage = route === '/berita/hyundai-neira'
 
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true })
@@ -24,13 +26,13 @@ function App() {
 
   return (
     <>
-      {isUnitPage ? <HighlightUnitPage /> : <HomePage />}
+      {isUnitPage ? <HighlightUnitPage /> : isNeiraNewsPage ? <NeiraNewsPage /> : <HomePage />}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
-        aria-label="Hubungi sales via WhatsApp"
-        title="Hubungi sales via WhatsApp"
+        aria-label="Hubungi konsultan penjualan via WhatsApp"
+        title="Hubungi konsultan penjualan via WhatsApp"
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-emerald-900/20 transition-transform hover:scale-105 hover:bg-[#20BA5A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
       >
         <svg viewBox="0 0 32 32" className="h-8 w-8" fill="none" aria-hidden="true">

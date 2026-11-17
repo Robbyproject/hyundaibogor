@@ -9,8 +9,8 @@ export function HighlightSection() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Unit Unggulan Bulan Ini"
-          title="Highlight Pilihan"
-          description="Pratinjau unit terfavorit ready stock dengan promo diskon & DP terendah bulan ini."
+          title="Pilihan Unit Unggulan"
+          description="Intip unit favorit yang tersedia dengan penawaran diskon dan DP ringan bulan ini."
           action={
             <a href="/unit-unggulan" className="inline-flex items-center gap-1 text-xs font-bold text-secondary">
                
@@ -20,7 +20,7 @@ export function HighlightSection() {
         <div className="grid overflow-hidden rounded-xl border border-line bg-white shadow-sm lg:grid-cols-12" data-reveal>
           <div className="relative flex items-center justify-center overflow-hidden bg-blue-50/60 p-5 lg:col-span-7 lg:p-8">
             <span className="absolute left-4 top-4 z-10 rounded-full bg-ink px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white">
-              Ready Stock
+              Stok Tersedia
             </span>
             <img
               src={featuredCar.image}
@@ -35,7 +35,7 @@ export function HighlightSection() {
                   {featuredCar.series}
                 </span>
                 <span className="rounded-full bg-emerald-50 px-2 py-1 text-[8px] font-bold text-emerald-600">
-                  Semua Warna Ready
+                  Semua Warna Tersedia
                 </span>
               </div>
               <h3 className="text-lg font-bold tracking-tight text-ink lg:text-xl">

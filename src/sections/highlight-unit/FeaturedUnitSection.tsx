@@ -7,7 +7,7 @@ import { whatsappUrl } from '../../lib/data/site'
 
 const categoryTags: Array<{ label: string; category: CarCategory }> = [
   { label: 'Hybrid & Bensin', category: 'hybrid' },
-  { label: 'Family SUV', category: 'suv' },
+  { label: 'SUV Keluarga', category: 'suv' },
 ]
 
 export function FeaturedUnitSection() {
@@ -75,7 +75,7 @@ export function FeaturedUnitSection() {
           </div>
           <div className="flex flex-col rounded-xl border border-line bg-white p-5 shadow-sm lg:col-span-5 lg:p-7">
             <div className="mb-4 border-b border-line pb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted">Harga On The Road Mulai</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted">Harga OTR mulai</span>
               <div className="mt-1 text-2xl font-bold tracking-tight text-secondary">{activeUnit.price}</div>
               <p className="mt-1 text-xs text-muted">{activeUnit.availability}</p>
             </div>

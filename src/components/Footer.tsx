@@ -16,7 +16,7 @@ export function Footer() {
               Lokasi & Kontak Resmi
             </p>
             <h2 className="text-2xl font-bold tracking-[-0.04em] text-ink">
-              Showroom & Konsultasi
+              Alamat dan Kontak
             </h2>
           </div>
           <p className="max-w-xs text-left text-[11px] leading-relaxed text-muted md:text-right"></p>
@@ -47,7 +47,7 @@ export function Footer() {
 
               <div className="sm:col-span-5">
                 <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.14em] text-secondary">
-                  Sales Supervisor
+                  Supervisor Penjualan
                 </p>
                 <p className="text-xs font-bold text-ink">Deva Agriani</p>
                 <div className="mt-3 space-y-2 text-[11px] text-muted">
@@ -59,6 +59,7 @@ export function Footer() {
                   </a>
                 </div>
               </div>
+
             </div>
 
             {/* Button dibuat lebih memanjang */}
@@ -76,7 +77,7 @@ export function Footer() {
 
           <div className="relative min-h-[220px] overflow-hidden rounded-md border border-line bg-white lg:col-span-5">
             <iframe
-              title="Lokasi showroom Sentul Bogor"
+              title="Lokasi ruang pamer Sentul Bogor"
               className="absolute inset-0 h-full w-full border-0"
               loading="lazy"
               src={mapEmbed}
@@ -91,12 +92,23 @@ export function Footer() {
             </a>
           </div>
         </div>
+
+        <section className="mt-8">
+          <h3 className="text-sm font-bold text-ink">
+            Layanan Hyundai untuk Wilayah Jabodetabek
+          </h3>
+          <p className="mt-2 max-w-5xl text-xs leading-relaxed text-muted">
+            Kami melayani konsultasi pembelian Hyundai secara tunai maupun kredit, tukar tambah,
+            uji kendara ke rumah atau kantor, serta pengiriman unit. Layanan tersedia untuk wilayah
+            Bogor, Sentul, Cibinong, Depok, Jakarta, Bekasi, dan Tangerang.
+          </p>
+        </section>
       </div>
 
       <div className="border-t border-line bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-[10px] text-muted sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div className="flex items-center gap-2.5">
-            <img src={assets.dealerLogo} alt="Hyundai Dealer Logo" className="hidden h-4 w-auto object-contain sm:block" />
+            <img src={assets.dealerLogo} alt="Logo Dealer Hyundai" className="hidden h-4 w-auto object-contain sm:block" />
             <span>© 2026 PT Sinar Inti Primajaya Perkasa - Deva Agriani.</span>
           </div>
           <div className="flex gap-4">

@@ -21,7 +21,7 @@ export function CarCatalogSection({ activeCategory, onCategoryChange }: CarCatal
       <div data-catalog-item className="mb-8 flex flex-col justify-between gap-3 md:flex-row md:items-end">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-ink lg:text-3xl">Katalog Pilihan Unit Hyundai 2026</h2>
-          <p className="mt-1 text-sm text-muted">Daftar harga On The Road resmi wilayah Jabodetabek dan sekitarnya.</p>
+          <p className="mt-1 text-sm text-muted">Daftar harga On The Road (OTR) resmi untuk wilayah Jabodetabek dan sekitarnya.</p>
         </div>
         <p className="text-xs font-semibold text-muted">{visibleCars.length} unit tersedia</p>
       </div>

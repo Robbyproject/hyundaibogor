@@ -18,6 +18,7 @@ export function CarCatalogCard({ car }: CarCatalogCardProps) {
   }
 
   const message = encodeURIComponent(`Halo Deva, saya tertarik dengan unit ${car.name}. Mohon info promo dan simulasi kreditnya.`)
+  const chatUrl = `${whatsappUrl.split('?')[0]}?text=${message}`
 
   return (
     <article
@@ -62,7 +63,7 @@ export function CarCatalogCard({ car }: CarCatalogCardProps) {
 
         <div className="mt-auto flex gap-1.5 border-t border-line pt-3 sm:gap-2 sm:pt-5">
           <a
-            href={`${whatsappUrl}&text=${message}`}
+            href={chatUrl}
             target="_blank"
             rel="noreferrer"
             className="inline-flex min-w-0 flex-1 items-center justify-center gap-1 rounded-lg bg-surface px-2 py-2 text-[9px] font-bold text-ink transition-colors hover:bg-blue-50 sm:gap-1.5 sm:px-3 sm:py-2.5 sm:text-[11px]"
@@ -70,10 +71,10 @@ export function CarCatalogCard({ car }: CarCatalogCardProps) {
             <ArrowUpRight size={12} /> <span className="truncate">{car.quoteLabel}</span>
           </a>
           <a
-            href={`${whatsappUrl}&text=${message}`}
+            href={chatUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label={`Chat untuk ${car.name}`}
+            aria-label={`Hubungi konsultan penjualan untuk ${car.name}`}
             className="inline-flex items-center justify-center rounded-lg bg-ink px-2.5 py-2 text-white transition-colors hover:bg-secondary sm:px-3 sm:py-2.5"
           >
             <MessageCircle size={14} />

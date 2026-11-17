@@ -12,7 +12,7 @@ export function CatalogIntroSection() {
             Pilihan Unit Unggulan & Harga OTR Hyundai
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted lg:text-base">
-            Dapatkan penawaran harga terbaik, promo bunga ringan, diskon eksklusif, serta unit test drive siap antar ke lokasi Anda bersama <strong className="text-ink">Deva Agriani</strong>.
+            Dapatkan penawaran harga terbaik, promo bunga ringan, diskon eksklusif, serta layanan uji kendara yang siap diantar ke lokasi Anda bersama <strong className="text-ink">Deva Agriani</strong>.
           </p>
           <button
             type="button"
@@ -27,7 +27,7 @@ export function CatalogIntroSection() {
             <ShieldCheck size={22} />
           </div>
           <div>
-            <span className="block text-xs font-bold text-ink">Authorized Dealer OTR</span>
+            <span className="block text-xs font-bold text-ink">Dealer Resmi dengan Harga OTR</span>
             <span className="block text-[10px] text-muted">Garansi resmi Hyundai</span>
           </div>
         </div>

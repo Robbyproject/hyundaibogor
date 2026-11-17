@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         unit: resolve(import.meta.dirname, 'unit-unggulan', 'index.html'),
+        neiraNews: resolve(import.meta.dirname, 'berita', 'hyundai-neira', 'index.html'),
       },
     },
   },

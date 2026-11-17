@@ -72,9 +72,9 @@ export function TestimonialsSection() {
     <section className="border-t border-line bg-white py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Bukti Kepuasan & Handover Unit"
+          eyebrow="Bukti Kepuasan & Serah Terima Unit"
           title="Apa Kata Konsumen Kami?"
-          description="Dokumentasi nyata serah terima unit mobil baru bersama para konsumen setia Hyundai."
+          description="Dokumentasi nyata penyerahan mobil baru kepada para konsumen Hyundai."
           action={
             <div className="flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-2 text-xs font-semibold text-ink">
               <span className="flex gap-0.5 text-amber-500">
@@ -82,7 +82,7 @@ export function TestimonialsSection() {
                   <Star key={star} size={14} fill="currentColor" />
                 ))}
               </span>{' '}
-              5.0 / 5.0 <span className="hidden text-muted sm:inline">(500+ Konsumen Puas)</span>
+              5.0 / 5.0 <span className="hidden text-muted sm:inline">(Lebih dari 500 konsumen puas)</span>
             </div>
           }
         />

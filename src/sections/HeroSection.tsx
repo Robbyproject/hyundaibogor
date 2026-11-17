@@ -9,7 +9,7 @@ export function HeroSection() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-12 lg:grid-rows-[auto_auto] lg:px-8">
         <div className="lg:col-span-7" data-reveal>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-secondary">
-            <span className="h-1.5 w-1.5 rounded-full bg-secondary" /> Resmi & Terpercaya <span className="text-blue-300">•</span> Fast Response 24/7
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary" /> Resmi & Terpercaya <span className="text-blue-300">•</span> Respon Cepat 24/7
           </div>
           <h1 className="max-w-3xl text-4xl font-bold leading-[1.08] tracking-[-0.045em] text-ink sm:text-5xl lg:text-6xl">
             Dapatkan Mobil Impian Anda dengan <span className="text-secondary">Penawaran Terbaik</span>
@@ -19,12 +19,12 @@ export function HeroSection() {
               <Car size={22} aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm font-bold leading-tight text-ink">Layanan Test Drive di Tempat</p>
+              <p className="text-sm font-bold leading-tight text-ink">Layanan Uji Kendara di Tempat</p>
               <p className="mt-1 text-xs text-muted">Siap diantar ke kantor atau kediaman Anda</p>
             </div>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-muted">
-            Berpengalaman lebih dari 7 tahun membantu 500+ keluarga dan korporasi mendapatkan unit mobil baru dengan proses transparan, approval kredit kilat, serta paket bonus terbaik.
+            Berpengalaman lebih dari 7 tahun membantu 500+ keluarga dan perusahaan mendapatkan mobil baru dengan proses transparan, persetujuan kredit cepat, serta paket bonus terbaik.
           </p>
           <div className="mt-9 hidden max-w-xl grid-cols-3 gap-4 border-t border-line pt-6 sm:grid">
             {[
@@ -45,9 +45,9 @@ export function HeroSection() {
             </div>
             <div className="flex items-center justify-between gap-3 px-2 pb-1 pt-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">Official Consultant</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">Konsultan Resmi</p>
                 <p className="mt-1 text-lg font-bold text-ink">Deva Agriani</p>
-                <p className="text-sm text-muted">Sales Supervisor • PT Sinar Inti Primajaya Perkasa</p>
+                <p className="text-sm text-muted">Supervisor Penjualan • PT Sinar Inti Primajaya Perkasa</p>
               </div>
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
                 <ShieldCheck size={21} />
@@ -68,13 +68,13 @@ export function HeroSection() {
             rel="noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-200 transition-colors hover:bg-[#20BA5A] hover:-translate-y-0.5"
           >
-            <MessageCircle size={17} /> Chat WhatsApp <ArrowUpRight size={16} />
+            <MessageCircle size={17} /> Hubungi via WhatsApp <ArrowUpRight size={16} />
           </a>
           <a
             href="#contact"
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-white px-6 py-3.5 text-sm font-bold text-ink transition-colors hover:border-secondary hover:text-secondary"
           >
-            Contact Me <MoveRight size={17} />
+            Hubungi Saya <MoveRight size={17} />
           </a>
         </div>
       </div>
